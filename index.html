@@ -1,0 +1,51 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+<div>
+  <select multiple="multiple">
+    <optgroup label="Preparation">
+      <option value="prep-sequence">Course</option>
+      <option value="prep-station">Prep Stations</option>
+      <option value="prep-time-seconds">Prep Time</option>
+      <option value="order-in-ticket">Sort Order</option>
+    </optgroup>
+    <optgroup label="Scanning">
+      <option value="embedded-amount-type">Embedded Amount Type</option>
+    </optgroup>
+    <optgroup label="Weighing">
+      <option value="tare-weight">Tare Weight</option>
+    </optgroup>
+  </select>
+</div>
+
+<h4>jQuery</h4>
+<button id="jq-select-4th">Select 4th option</button>
+<button id="jq-deselect-4th">Deselect 4th option</button>
+
+<h4>Vanilla</h4>
+<button id="select-4th">Select 4th option</button>
+<button id="deselect-4th">Deselect 4th option</button>
+
+<hr />
+<button id="log">Log option values to console</button>
+
+<script>
+  $('#jq-select-4th').click(function () {
+    $('select option').eq(3).prop('selected', true)
+  })
+  $('#jq-deselect-4th').click(function () {
+    $('select option').eq(3).prop('selected', false)
+  })
+  $('#log').click(function () {
+    $('select option').each(function () { console.log($(this).val(), $(this).prop('selected')) })
+  })
+
+  document.getElementById('select-4th').addEventListener('click', function () {
+    var options = document.querySelectorAll('select option')
+    options[3].selected = true
+  })
+
+  document.getElementById('deselect-4th').addEventListener('click', function () {
+    var options = document.querySelectorAll('select option')
+    options[3].selected = false
+  })
+</script>
